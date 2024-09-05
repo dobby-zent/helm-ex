@@ -16,7 +16,7 @@ fullnameOverride: ""
 
 podAnnotations: {}
 
-maxSurge: 34%
+maxSurge: 35%
 maxUnavailable: 0%
 
 service:
