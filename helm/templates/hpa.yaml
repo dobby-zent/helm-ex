@@ -15,10 +15,6 @@ spec:
       resource:
         name: cpu
         targetAverageUtilization: {{ .Values.hpa.targetCPUUtilizationPercentage }}
-    - type: Resource
-      resource:
-        name: memory
-        targetAverageUtilization: {{ .Values.hpa.targetMemoryUtilizationPercentage }}
     {{- end }}
     {{- if .Values.hpa.targetMemoryUtilizationPercentage }}
     - type: Resource
