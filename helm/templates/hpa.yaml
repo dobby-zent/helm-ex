@@ -1,6 +1,6 @@
 {{- if .Values.autoscaling.enabled }}
 apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
+kind: horizontalpodautoscalers
 metadata:
   name: {{ include "hello.fullname" . }}
   labels:
