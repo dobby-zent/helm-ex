@@ -8,7 +8,7 @@ image:
   ## Never 이미지를 폴링하지 않음
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "5"
+  tag: "6"
 
 imagePullSecrets: []
 nameOverride: ""
