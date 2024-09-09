@@ -43,25 +43,22 @@ ingress:
                 port:
                   number: 3000
 
+## HPA 설정
 resources:
- {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
-
+  limits:          ## 파드가 사용할 수 있는 최대 사융률 (Resource)
+    cpu: 250m      ## 100m = 0.1 CPU
+    memory: 128Mi  ## 128Mi = 128 * 1024 * 1024 bytes
+  requests:        ## 기본적으로 파드가 사용하는 사융률 (Scaling)
+    cpu: 250m
+    memory: 128Mi
+  
+## HPA 설정
 autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 20
+  # targetMemoryUtilizationPercentage: 50
 
 nodeSelector:
   nodeType: service
